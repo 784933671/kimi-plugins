@@ -1,0 +1,32 @@
+{
+  "name": "xuegong-system",
+  "version": "1.2.1",
+  "description": "学工系统 Apifox MCP 接入。",
+  "keywords": [
+    "xuegong",
+    "apifox",
+    "mcp",
+    "api",
+    "student-system"
+  ],
+  "author": "tangtao",
+  "homepage": "https://github.com/784933671/agents",
+  "license": "MIT",
+  "commands": "./commands/",
+  "mcpServers": {
+    "xuegong": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "apifox-mcp-server@latest",
+        "--project-id=7802011"
+      ]
+    }
+  },
+  "interface": {
+    "displayName": "学工系统",
+    "shortDescription": "学工系统 Apifox MCP 接入",
+    "developerName": "tangtao",
+    "websiteURL": "https://github.com/784933671/agents"
+  }
+}
