@@ -5,25 +5,25 @@
       "id": "ui-ux-craft",
       "displayName": "UI/UX Craft",
       "description": "UI 设计、UI 修复、UX 功能测试与可访问性审查",
-      "source": "./plugins/ui-ux-craft"
+      "source": "https://github.com/784933671/kimi-plugins/releases/download/plugins/ui-ux-craft.zip"
     },
     {
       "id": "vue-development",
       "displayName": "Vue Development",
       "description": "Vue 3 / Composition API / Pinia / Vite 专家，覆盖组件设计、响应式系统、路由、接口接入、Element Plus 与 Vant 业务开发",
-      "source": "./plugins/vue-development"
+      "source": "https://github.com/784933671/kimi-plugins/releases/download/plugins/vue-development.zip"
     },
     {
       "id": "javascript-development",
       "displayName": "JavaScript Development",
       "description": "JavaScript ES2023+ / async-await / ESM / Node.js / 浏览器 API 专家，覆盖现代 JS 开发、调试与重构",
-      "source": "./plugins/javascript-development"
+      "source": "https://github.com/784933671/kimi-plugins/releases/download/plugins/javascript-development.zip"
     },
     {
       "id": "xuegong-system",
       "displayName": "学工系统",
       "description": "学工系统 Apifox MCP 接入",
-      "source": "./plugins/xuegong-system"
+      "source": "https://github.com/784933671/kimi-plugins/releases/download/plugins/xuegong-system.zip"
     }
   ]
 }

@@ -9,13 +9,15 @@
 在 Kimi Code 中执行：
 
 ```text
-/plugins marketplace /path/to/kimi-plugins/marketplace.json
+/plugins marketplace https://raw.githubusercontent.com/784933671/kimi-plugins/main/marketplace.json
 ```
 
-如果本仓库已推送到 GitHub，也可以直接使用 marketplace.json 的 raw URL：
+marketplace.json 中各插件的 `source` 指向 GitHub Release（`plugins` tag）下由 CI 自动构建的 zip 包（见 `.github/workflows/release-plugins.yml`），因此远程安装前需保证该 workflow 至少成功运行过一次。
+
+本地 clone 后也可以使用本地路径：
 
 ```text
-/plugins marketplace https://raw.githubusercontent.com/<owner>/<repo>/main/marketplace.json
+/plugins marketplace /path/to/kimi-plugins/marketplace.json
 ```
 
 ### 方式二：安装单个插件

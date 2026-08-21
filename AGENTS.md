@@ -4,7 +4,7 @@
 
 ## 仓库结构
 
-- `marketplace.json` — Kimi Code 自定义市场清单，格式为 `{"version": "2", "plugins": [{"id", "displayName", "description", "source"}]}`，`source` 使用 `./plugins/<id>` 相对路径
+- `marketplace.json` — Kimi Code 自定义市场清单，格式为 `{"version": "2", "plugins": [{"id", "displayName", "description", "source"}]}`，`source` 使用 GitHub Release（`plugins` tag）下 zip 包的完整 URL；zip 由 `.github/workflows/release-plugins.yml` 在 push 到 main 时自动构建上传，新增插件后需推送并等 workflow 跑完才能远程安装
 - `plugins/<id>/kimi.plugin.json` — 插件清单（Kimi Code 格式，字段见下）
 - `plugins/<id>/agents/*.md` — 自定义子代理，`agents/` 目录存在时自动发现，无需在清单声明
 - `plugins/<id>/commands/*.md` — 斜杠命令，必须在清单的 `commands` 字段声明 `./commands/`；安装后以 `<plugin-id>:<command>` 调用，正文用 `$ARGUMENTS` 接收参数

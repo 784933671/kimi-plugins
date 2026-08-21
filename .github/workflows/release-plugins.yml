@@ -1,0 +1,42 @@
+name: Release plugin zips
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "plugins/**"
+      - ".github/workflows/release-plugins.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Zip each plugin
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          for dir in plugins/*/; do
+            id=$(basename "$dir")
+            # 清单必须位于 zip 根目录（kimi.plugin.json）
+            (cd "$dir" && zip -r "../../dist/${id}.zip" . -x "*.DS_Store")
+          done
+          ls -l dist/
+
+      - name: Publish to rolling release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          tag=plugins
+          if ! gh release view "$tag" >/dev/null 2>&1; then
+            gh release create "$tag" \
+              --title "Plugin zips" \
+              --notes "自动构建的插件 zip 包，供 marketplace.json 远程引用。"
+          fi
+          gh release upload "$tag" dist/*.zip --clobber
